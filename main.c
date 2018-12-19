@@ -3,7 +3,7 @@
 
 int main (void)
 {
-    int vcan0 = CAN_init("vcan0");
+    int vcan0 = CAN_init("can0");
 
     struct can_frame frame = {
         .can_id  = 0x123,

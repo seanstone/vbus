@@ -5,15 +5,15 @@ bin/fsw: $(wildcard *.c)
 	$(CC) $(CFLAGS) $^ -o $@
 
 .PHONY: vcan vcan-del
-vcan: /sys/class/net/vcan0
+vcan: /sys/class/net/can0
 
-/sys/class/net/vcan0:
+/sys/class/net/can0:
 	sudo modprobe vcan
-	sudo ip link add dev vcan0 type vcan
-	sudo ip link set up vcan0
+	sudo ip link add dev can0 type vcan
+	sudo ip link set up can0
 
 vcan-del:
-	sudo ip link del dev vcan0
+	sudo ip link del dev can0
 
 .PHONY: clean
 clean: vcan-del
