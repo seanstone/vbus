@@ -1,5 +1,9 @@
 CFLAGS += -I. -std=gnu11 -O3
 
+.PHONY: run
+run: bin/fsw vcan
+	$<
+
 bin/fsw: $(wildcard *.c)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $^ -o $@
